@@ -1,0 +1,21 @@
+{
+  "name": "crypto-icons",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "tsc": "tsc -p tsconfig.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "types": "index.d.ts",
+  "prepublish": "npm run tsc",
+  "author": "mohammad hosein alijany",
+  "license": "MIT",
+  "files": [
+    "dist/"
+  ],
+  "devDependencies": {
+    "@types/typescript": "^2.0.0",
+    "typescript": "^4.2.4"
+  }
+}
