@@ -41,6 +41,25 @@ export class CryptoIcons {
   }
 
   /**
+   * Write the manifest file for `coins`
+   *
+   * @param path A string specifying where you want to save the files to.
+   * @param name The name of the file to save (default is manifest.json)
+   * @param callback Function that called for each `Coin` then the returned value added to manifest. (default coin)
+   * @returns `CryptoIcons`
+   */
+   public saveManifest(
+    path: string,
+    name = "manifest.json",
+    callback: (coin: Coins[number]) => unknown = (coin) => coin
+  ): CryptoIcons {
+    const manifest = this.coins.map(callback);
+    fs.mkdirSync(path, { recursive: true });
+    fs.writeFileSync(`${path}/${name}`, JSON.stringify(manifest));
+    return this;
+  }
+
+  /**
    * Manipulating SVG elements whit SVG.JS library
    *
    * @param callback It gives you an 'coin' object whose `svg` is SVG.JS Container and you can manipulate svg whit it
