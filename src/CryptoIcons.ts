@@ -42,7 +42,7 @@ export class CryptoIcons {
 
   /**
    * Manipulating SVG elements whit SVG.JS library
-   * 
+   *
    * @param callback It gives you an 'coin' object whose `svg` is SVG.JS Container and you can manipulate svg whit it
    * @returns `CryptoIcons`
    */
@@ -75,11 +75,12 @@ export class CryptoIcons {
    */
   public saveSVG(
     path: string,
-    name: (Coin: Coins[number]) => string = (coin) => `${path}/${coin.id}.svg`
+    name?: (Coin: Coins[number]) => string
   ): CryptoIcons {
     fs.mkdirSync(path, { recursive: true });
-    this.forEach<string>(name, (path, coin) =>
-      fs.writeFileSync(path, coin.svg)
+    this.forEach<string>(
+      name || ((coin) => `${coin.id}.svg`), 
+      (name, coin) => fs.writeFileSync(`${path}/${name}`, coin.svg)
     );
     return this;
   }
