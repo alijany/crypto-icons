@@ -27,6 +27,7 @@
     "@types/jsdom": "^16.2.10",
     "@types/sharp": "^0.28.0",
     "jsdom": "^16.5.3",
+    "prettier": "^2.2.1",
     "sharp": "^0.28.1"
   }
 }
