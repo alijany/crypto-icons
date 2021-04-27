@@ -1,13 +1,13 @@
 {
   "name": "@mh.alijany/crypto-icons",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A set of icons for all the main cryptocurrencies and altcoins, Whit tools such as Sharp & SvgJs to  image processing and modifying SVG icons.",
   "main": "dist/index.js",
   "scripts": {
     "tsc": "tsc -p tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "types": "index.d.ts",
+  "types": "dist/index.d.ts",
   "prepublish": "npm run tsc",
   "author": "mohammad hosein alijany",
   "license": "MIT",
