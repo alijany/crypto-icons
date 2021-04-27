@@ -11,7 +11,7 @@
 
 ## About
 
-The project contains almost 400 crypto currencies in the SVG format. Completely free. All we ask is that you don’t claim them as your own, and share this resource with others.
+The project contains almost 400 crypto currencies in the SVG format. Completely free.
 
 The project also have some fiat currencies: USD, GBP, EUR, JPY, CNY, RUB.
 
