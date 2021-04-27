@@ -1,21 +1,9 @@
-import { Container } from "@svgdotjs/svg.js";
 import fs from "fs";
+import { Coin, Coins, SvgCoins } from "./Contracts";
 import manifest from "./manifest";
 import createSvg from "./svgJS";
 
-interface Coin {
-  id: string;
-  name: string;
-  symbol: string;
-  color: string;
-  svg: string;
-}
-
-type Coins = Coin[];
-
-type SvgCoins = Coin & { svgJs: Container };
-
-export class CryptoIcons {
+export default class CryptoIcons {
   constructor() {
     this.coins = this.load();
   }
@@ -90,10 +78,7 @@ export class CryptoIcons {
    * @param name The name of the file to save the svg of the Coin (default is `coin.id`.svg)
    * @returns `CryptoIcons`
    */
-  public saveSVG(
-    path: string,
-    name?: (Coin: Coin) => string
-  ): CryptoIcons {
+  public saveSVG(path: string, name?: (Coin: Coin) => string): CryptoIcons {
     fs.mkdirSync(path, { recursive: true });
     this.forEach<string>(name || ((coin) => `${coin.id}.svg`), (name, coin) =>
       fs.writeFileSync(`${path}/${name}`, coin.svg)
