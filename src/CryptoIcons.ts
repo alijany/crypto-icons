@@ -8,11 +8,12 @@ interface Coin {
   name: string;
   symbol: string;
   color: string;
+  svg: string;
 }
 
-type Coins = (Coin & { svg: string })[];
+type Coins = Coin[];
 
-type SvgCoins = Coin & { svg: Container };
+type SvgCoins = Coin & { svgJs: Container };
 
 export class CryptoIcons {
   constructor() {
@@ -22,10 +23,7 @@ export class CryptoIcons {
   private coins: Coins;
 
   private load() {
-    return manifest.map((coin) => {
-      const svg = fs.readFileSync(`${__dirname}/icons/${coin.id}.svg`, "utf8");
-      return { ...coin, svg };
-    });
+    return manifest.map((coin) => ({ ...coin }));
   }
 
   private forEach<T>(
@@ -48,7 +46,7 @@ export class CryptoIcons {
    * @param callback Function that called for each `Coin` then the returned value added to manifest. (default coin)
    * @returns `CryptoIcons`
    */
-   public saveManifest(
+  public saveManifest(
     path: string,
     name = "manifest.json",
     callback: (coin: Coins[number]) => unknown = (coin) => coin
@@ -67,9 +65,9 @@ export class CryptoIcons {
    */
   public modifySVG(callback: (coin: SvgCoins) => void): CryptoIcons {
     this.forEach<SvgCoins>(
-      (coin) => ({ ...coin, svg: createSvg(coin.svg) }),
+      (coin) => ({ ...coin, svgJs: createSvg(coin.svg) }),
       callback,
-      (modifiedCoin, coin) => (coin.svg = modifiedCoin.svg.svg())
+      (modifiedCoin, coin) => (coin.svg = modifiedCoin.svgJs.svg())
     );
     return this;
   }
@@ -97,9 +95,8 @@ export class CryptoIcons {
     name?: (Coin: Coins[number]) => string
   ): CryptoIcons {
     fs.mkdirSync(path, { recursive: true });
-    this.forEach<string>(
-      name || ((coin) => `${coin.id}.svg`), 
-      (name, coin) => fs.writeFileSync(`${path}/${name}`, coin.svg)
+    this.forEach<string>(name || ((coin) => `${coin.id}.svg`), (name, coin) =>
+      fs.writeFileSync(`${path}/${name}`, coin.svg)
     );
     return this;
   }
@@ -114,3 +111,5 @@ export class CryptoIcons {
     return this;
   }
 }
+
+new CryptoIcons().saveManifest("there");
