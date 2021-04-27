@@ -1,6 +1,7 @@
 import fs from "fs";
-import { Coin, Coins, SvgCoins } from "./Contracts";
+import { Coin, Coins, SharpCoins, SvgCoins } from "./Contracts";
 import manifest from "./manifest";
+import sharp from "./sharp";
 import createSvg from "./svgJS";
 
 export default class CryptoIcons {
@@ -48,7 +49,7 @@ export default class CryptoIcons {
   /**
    * Manipulating SVG elements whit SVG.JS library
    *
-   * @param callback It gives you an 'coin' object whose `svg` is SVG.JS Container and you can manipulate svg whit it
+   * @param callback It gives you an 'coin' object whose `svgJs` is SVG.JS Container and you can manipulate svg whit it
    * @returns `CryptoIcons`
    */
   public modifySVG(callback: (coin: SvgCoins) => void): CryptoIcons {
@@ -59,6 +60,21 @@ export default class CryptoIcons {
     );
     return this;
   }
+
+
+  /**
+   * Process SVG image whit `sharp`
+   *
+   * @param callback It gives you an 'coin' object whose `svgSharp` is Sharp Object and you can process svg whit it
+   * @returns `CryptoIcons`
+   */
+     public sharp(callback: (coin: SharpCoins) => void): CryptoIcons {
+      this.forEach<SharpCoins>(
+        (coin) => ({ ...coin, svgSharp: sharp(coin.svg) }),
+        callback,
+      );
+      return this;
+    }
 
   /**
    * Filter the coins that meet the condition specified in a callback function.
