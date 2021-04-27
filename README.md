@@ -1,9 +1,9 @@
 # crypto-icons (Document will be written soon ...)
-# Based on the [Cryptocurrency Icons](https://github.com/spothq/cryptocurrency-icons)
+> Based on the [Cryptocurrency Icons](https://github.com/spothq/cryptocurrency-icons)
+
 ## Table of Contents
 
 - [crypto-icons (Document will be written soon ...)](#crypto-icons-document-will-be-written-soon-)
-- [Based on the Cryptocurrency Icons](#based-on-the-cryptocurrency-icons)
   - [Table of Contents](#table-of-contents)
   - [About](#about)
   - [Installing](#installing)
