@@ -1,7 +1,7 @@
 {
   "name": "crypto-icons",
   "version": "0.1.1",
-  "description": "",
+  "description": "A set of icons for all the main cryptocurrencies and altcoins, Whit tools such as Sharp & SvgJs to  image processing and modifying SVG icons.",
   "main": "dist/index.js",
   "scripts": {
     "tsc": "tsc -p tsconfig.json",
@@ -29,5 +29,23 @@
     "jsdom": "^16.5.3",
     "prettier": "^2.2.1",
     "sharp": "^0.28.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alijany/cryptocurrency-icons.git"
+  },
+  "keywords": [
+    "crypto",
+    "bitcoin",
+    "icons",
+    "icon-pack",
+    "svg-icons",
+    "cryptocurrencies",
+    "sharp",
+    "svg-js"
+  ],
+  "bugs": {
+    "url": "https://github.com/alijany/cryptocurrency-icons/issues"
+  },
+  "homepage": "https://github.com/alijany/cryptocurrency-icons#readme"
 }
