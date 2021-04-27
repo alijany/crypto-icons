@@ -27,9 +27,9 @@ export class CryptoIcons {
   }
 
   private forEach<T>(
-    prepare: (coin: Coins[number]) => T,
-    callback: (arg: T, coin: Coins[number]) => void,
-    save?: (arg: T, coin: Coins[number]) => void
+    prepare: (coin: Coin) => T,
+    callback: (arg: T, coin: Coin) => void,
+    save?: (arg: T, coin: Coin) => void
   ) {
     this.coins.forEach((coin) => {
       const arg = prepare(coin);
@@ -49,7 +49,7 @@ export class CryptoIcons {
   public saveManifest(
     path: string,
     name = "manifest.json",
-    callback: (coin: Coins[number]) => unknown = (coin) => coin
+    callback: (coin: Coin) => unknown = (coin) => coin
   ): CryptoIcons {
     const manifest = this.coins.map(callback);
     fs.mkdirSync(path, { recursive: true });
@@ -78,7 +78,7 @@ export class CryptoIcons {
    * @param callback Function is a predicate, to test each Coin. Return a value that coerces to true to keep the element, or to false otherwise.
    * @returns `CryptoIcons`
    */
-  public filter(callback: (coin: Coins[number]) => boolean): CryptoIcons {
+  public filter(callback: (coin: Coin) => boolean): CryptoIcons {
     this.coins = this.coins.filter(callback);
     return this;
   }
@@ -92,7 +92,7 @@ export class CryptoIcons {
    */
   public saveSVG(
     path: string,
-    name?: (Coin: Coins[number]) => string
+    name?: (Coin: Coin) => string
   ): CryptoIcons {
     fs.mkdirSync(path, { recursive: true });
     this.forEach<string>(name || ((coin) => `${coin.id}.svg`), (name, coin) =>
@@ -111,5 +111,3 @@ export class CryptoIcons {
     return this;
   }
 }
-
-new CryptoIcons().saveManifest("there");
