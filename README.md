@@ -26,6 +26,8 @@ You can use tools such as Sharp & Svg.Js to image processing and modifying SVG i
 ## Basic Usage
 
 ```typescript
+import { cryptoIcons } from '@mh.alijany/crypto-icons';
+
 cryptoIcons
     .filter(coin => coin.name == "Bitcoin")
     .saveManifest("./dir")
