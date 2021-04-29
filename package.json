@@ -9,7 +9,16 @@
   },
   "types": "dist/index.d.ts",
   "prepublish": "npm run tsc",
-  "author": "mohammad hosein alijany",
+  "contributors": [
+    {
+      "name": "Mohammad hosein Alijany",
+      "email": "mh.alijany@gmail.com"
+    },
+    {
+      "name": "Farhaan Aqaei",
+      "email": "farhan9aqaei@gmail.com"
+    }
+  ],
   "license": "MIT",
   "lint": "eslint . --ext .ts",
   "files": [
