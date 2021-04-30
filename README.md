@@ -7,7 +7,7 @@
   - [Table of Contents](#table-of-contents)
   - [About](#about)
   - [Installing](#installing)
-  - [Basic Usage](#basic-usage)
+  - [Examples](#examples)
 
 ## About
 
@@ -21,14 +21,19 @@ You can use tools such as Sharp & Svg.Js to image processing and modifying SVG i
 
 ## Installing
 
-> npm i @mh.alijany/crypto-icons
+```properties
+npm i @mh.alijany/crypto-icons
+```
 
-## Basic Usage
+## Examples
 
 ```typescript
 import { cryptoIcons } from '@mh.alijany/crypto-icons';
+```
 
-cryptoIcons
+**Filtering and saving the icons :**
+```typescript
+cryptoIcons()
     .filter(coin => coin.name == "Bitcoin")
     .saveManifest("./dir")
     .reload()
@@ -36,4 +41,18 @@ cryptoIcons
     .saveSVG('./images');
 ```
 
+**Using [SVG.js](https://svgjs.com/) to manipulating SVG elements :**
+> Note : this also works in Node.Js environment 
+```typescript
+cryptoIcons()
+    .modifySVG(svgJs => svgJs.rect(32,32).back())
+    .saveSVG('./images');
+```
+
+**Using [sharp](https://sharp.pixelplumbing.com/) to image processing :**
+```typescript
+cryptoIcons()
+    .filter(coin => coin.name == "Bitcoin")
+    .sharp(sharpInstance => sharpInstance.toFile("btc-bitcoin.png"));
+```
 

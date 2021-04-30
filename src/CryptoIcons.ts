@@ -1,5 +1,7 @@
+import { Container } from "@svgdotjs/svg.js";
 import fs from "fs";
-import { Coin, Coins, SharpCoins, SvgCoins } from "./Contracts";
+import { Sharp } from "sharp";
+import { Coin, Coins } from "./Contracts";
 import manifest from "./manifest";
 import sharp from "./sharp";
 import createSvg from "./svgJS";
@@ -12,7 +14,7 @@ export default class CryptoIcons {
   private coins: Coins;
 
   private load() {
-    return manifest.map((coin) => ({ ...coin }));
+    return manifest.map(coin => ({ ...coin }));
   }
 
   private forEach<T>(
@@ -22,7 +24,7 @@ export default class CryptoIcons {
   ) {
     this.coins.forEach((coin) => {
       const arg = prepare(coin);
-      callback(arg, coin);
+      callback(arg, { ...coin });
       save && save(arg, coin);
     });
   }
@@ -40,7 +42,8 @@ export default class CryptoIcons {
     name = "manifest.json",
     callback: (coin: Coin) => unknown = (coin) => coin
   ): CryptoIcons {
-    const manifest = this.coins.map(callback);
+    const callbackFn = (coin: Coin) => callback({ ...coin });
+    const manifest = this.coins.map(callbackFn);
     fs.mkdirSync(path, { recursive: true });
     fs.writeFileSync(`${path}/${name}`, JSON.stringify(manifest));
     return this;
@@ -49,32 +52,32 @@ export default class CryptoIcons {
   /**
    * Manipulating SVG elements whit SVG.JS library
    *
-   * @param callback It gives you an 'coin' object whose `svgJs` is SVG.JS Container and you can manipulate svg whit it
+   * @param callback It gives you a SVG.JS Container and you can manipulate svg whit it
    * @returns `CryptoIcons`
    */
-  public modifySVG(callback: (coin: SvgCoins) => void): CryptoIcons {
-    this.forEach<SvgCoins>(
-      (coin) => ({ ...coin, svgJs: createSvg(coin.svg) }),
+  public modifySVG(
+    callback: (svgElement: Container, coin: Coin) => void
+  ): CryptoIcons {
+    this.forEach<Container>(
+      (coin) => createSvg(coin.svg),
       callback,
-      (modifiedCoin, coin) => (coin.svg = modifiedCoin.svgJs.svg())
+      (svgElement, coin) => (coin.svg = svgElement.svg())
     );
     return this;
   }
 
-
   /**
    * Process SVG image whit `sharp`
    *
-   * @param callback It gives you an 'coin' object whose `svgSharp` is Sharp Object and you can process svg whit it
+   * @param callback It gives you a Sharp instance and you can process svg whit it
    * @returns `CryptoIcons`
    */
-     public sharp(callback: (coin: SharpCoins) => void): CryptoIcons {
-      this.forEach<SharpCoins>(
-        (coin) => ({ ...coin, svgSharp: sharp(coin.svg) }),
-        callback,
-      );
-      return this;
-    }
+  public sharp(
+    callback: (sharpInstance: Sharp, coin: Coin) => void
+  ): CryptoIcons {
+    this.forEach<Sharp>((coin) => sharp(coin.svg), callback);
+    return this;
+  }
 
   /**
    * Filter the coins that meet the condition specified in a callback function.

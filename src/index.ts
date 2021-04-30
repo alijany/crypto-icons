@@ -1,7 +1,7 @@
-import CryptoIcons from './CryptoIcons'
+import CryptoIcons from "./CryptoIcons";
 
-const cryptoIcons = new CryptoIcons();
-
-export {
-    cryptoIcons
+function cryptoIcons(): CryptoIcons {
+  return new CryptoIcons();
 }
+
+export { cryptoIcons };
