@@ -15,7 +15,9 @@
 ## About
 
 The project contains almost 400 crypto currencies in the SVG format.
-The project also have a generic icon for cryptocurrencies missing an icon here, and some fiat currencies: USD, GBP, EUR, JPY, CNY, RUB.
+
+The project also have a generic icon for cryptocurrencies missing an icon here. and in addition some fiat currencies: USD, GBP, EUR, JPY, CNY, RUB.
+
 You can use tools such as Sharp & Svg.Js to image processing and modifying SVG icons to Create your desired output.
 
 ## Install
