@@ -100,6 +100,8 @@ Writes a JSON file that contains an array of ‍‍`Coin` objects
 |    name   |   name of the output file (default is manifest.json)   |
 |  callback |       map function to customize the default Coin       |
 
+example:
+
 ```typescript
 cryptoIcons()
   .saveManifest(
@@ -117,6 +119,8 @@ Process SVG image whit [sharp](https://sharp.pixelplumbing.com/)
 |:---------:|:------------------------------------------------:|
 |  callback | function whit an instance the sharp as parameter |
 
+example:
+
 ```typescript
 cryptoIcons()
   .sharp((sharpInstance, coin) => {
@@ -132,6 +136,8 @@ Filter the coins that meet the condition specified in a callback function.
 |:---------:|:--------------------------------------------------------------------:|
 |  callback | test function that Return true to keep the element, false otherwise. |
 
+example:
+
 ```typescript
 cryptoIcons()
   .filter((coin) => coin.name.startsWith("Bit"));
@@ -145,6 +151,8 @@ Write the svg file of each `Coin` object in specified path
 |:---------:|:-------------------------------------------------------------------------:|
 |    path   |                         directory to write output                         |
 |    name   | callback that return the name of the output file (default is coin.id.svg) |
+
+example:
 
 ```typescript
 cryptoIcons()
