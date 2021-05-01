@@ -163,6 +163,8 @@ cryptoIcons()
 
  Reload all of the `Coin` objects
 
+example:
+
  ```typescript
 cryptoIcons()
   .reload();
