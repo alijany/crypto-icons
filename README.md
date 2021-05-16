@@ -46,11 +46,15 @@ cryptoIcons()
 **Use [SVG.js](https://svgjs.com/) to manipulate SVG elements :**
 
 > Note : this works in Node.Js environment
+
 > Note : The SVG.Box functions are currently unavailable
 
 ```typescript
 cryptoIcons()
-  .modifySVG((svgJs) => svgJs.rect(32, 32).back())
+  .modifySVG((svgJs) => {
+    svgJs.height(200);
+    svgJs.width(200);
+  })
   .saveSVG("./images");
 ```
 
