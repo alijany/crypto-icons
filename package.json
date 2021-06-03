@@ -1,6 +1,6 @@
 {
   "name": "@mh.alijany/crypto-icons",
-  "version": "0.1.91",
+  "version": "0.1.92",
   "description": "A set of icons for all the main cryptocurrencies and altcoins, Whit tools such as Sharp & SvgJs to  image processing and modifying SVG icons.",
   "main": "dist/index.js",
   "scripts": {
@@ -25,19 +25,18 @@
     "dist/"
   ],
   "devDependencies": {
-    "@types/typescript": "^2.0.0",
-    "@typescript-eslint/eslint-plugin": "^4.22.0",
-    "@typescript-eslint/parser": "^4.22.0",
     "@types/jsdom": "^16.2.10",
-    "@types/sharp": "^0.28.0",
-    "eslint": "^7.25.0",
-    "typescript": "^4.2.4",
-    "prettier": "^2.2.1"
+    "@types/sharp": "^0.28.3",
+    "@typescript-eslint/eslint-plugin": "^4.26.0",
+    "@typescript-eslint/parser": "^4.26.0",
+    "eslint": "^7.27.0",
+    "prettier": "^2.3.0",
+    "typescript": "^4.3.2"
   },
   "dependencies": {
     "@svgdotjs/svg.js": "^3.0.16",
-    "jsdom": "^16.5.3",
-    "sharp": "^0.28.1"
+    "jsdom": "^16.6.0",
+    "sharp": "^0.28.3"
   },
   "repository": {
     "type": "git",
