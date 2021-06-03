@@ -92,7 +92,7 @@ export default [
       name: "Augmint Euro Token",
       color: "#051d2d",
       id: "aeur-augmint-euro-token",
-      svg: '<svg width="100" height="100" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><g fill="#051d2d"><defs><linearGradient id="fadeGrad" y2="1" x2="0"><stop offset="0" stop-color="white" stop-opacity="1"/><stop offset="0.3" stop-color="white" stop-opacity="0"/></linearGradient><mask id="fade" maskContentUnits="objectBoundingBox"><rect width="1" height="1" fill="url(#fadeGrad)"/></mask></defs><circle mask="url(#fade)" cx="16" cy="17" r="11"></circle><circle mask="url(#fade)" cx="16" cy="29" r="11"></circle></g></svg>',
+      svg: '<svg width="100" height="100" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><g fill="#051d2d"><defs><linearGradient id="fadeGrad" y2="1" x2="0"><stop offset="0" stop-color="white" stop-opacity="1"/><stop offset="0.3" stop-color="white" stop-opacity="0"/></linearGradient><mask id="fade" maskContentUnits="objectBoundingBox"><rect width="1" height="1" fill="url(#fadeGrad)"/></mask></defs><circle mask="url(#fade)" cx="16" cy="17" r="11"></circle><circle mask="url(#fade)" cx="16" cy="26" r="11"></circle></g></svg>',
   },
   {
     symbol: "AGI",
