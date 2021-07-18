@@ -27,7 +27,15 @@ npm i @mh.alijany/crypto-icons
 ## Examples
 
 ```typescript
-import { cryptoIcons } from "@mh.alijany/crypto-icons";
+import { cryptoIcons, lightTheme } from "@mh.alijany/crypto-icons";
+```
+
+**Use default themes :**
+
+```typescript
+cryptoIcons()
+  .operation(lightTheme(1024))
+  .saveSVG("./images");
 ```
 
 **Filter and save the icons :**
@@ -44,7 +52,7 @@ cryptoIcons()
 **Use [SVG.js](https://svgjs.com/) to manipulate SVG elements :**
 
 > Note : this works in Node.Js environment
-
+>
 > Note : The SVG.Box functions are currently unavailable
 
 ```typescript
@@ -171,4 +179,23 @@ example:
  ```typescript
 cryptoIcons()
   .reload();
+```
+
+#### `operation(operation: Operation): CryptoIcons`
+
+this function accept an operation as arguments which can be used for styling the icons.
+Several operation have been written which accept the icon size as an argument.
+
+Default operators:
+
+- lightTheme
+- darkTheme
+- grayTheme
+
+example:
+
+ ```typescript
+cryptoIcons()
+  .operation(lightTheme(1024))
+  .saveSVG("./images");
 ```
