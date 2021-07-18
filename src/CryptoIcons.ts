@@ -1,12 +1,12 @@
 import { Container } from "@svgdotjs/svg.js";
 import fs from "fs";
 import { Sharp } from "sharp";
-import { Coin, Coins } from "./Contracts";
+import { Coin, Coins, CryptoIcons, Operation } from "./Contracts";
 import manifest from "./manifest";
 import sharp from "./sharp";
 import createSvg from "./svgJS";
 
-export default class CryptoIcons {
+export default class $CryptoIcons implements CryptoIcons {
   constructor() {
     this.coins = this.load();
   }
@@ -14,7 +14,7 @@ export default class CryptoIcons {
   private coins: Coins;
 
   private load() {
-    return manifest.map(coin => ({ ...coin }));
+    return manifest.map((coin) => ({ ...coin }));
   }
 
   private forEach<T>(
@@ -112,6 +112,16 @@ export default class CryptoIcons {
    */
   public reload(): CryptoIcons {
     this.coins = this.load();
+    return this;
+  }
+
+  /**
+   * add operations to objects
+   *
+   * @returns `CryptoIcons`
+   */
+  public operation(operation: Operation): CryptoIcons {
+    operation.visit(this);
     return this;
   }
 }
