@@ -1,11 +1,8 @@
-# crypto-icons
-
+# ![](https://github.com/alijany/crypto-icons/blob/master/src/banner.png)
 > Based on the [Cryptocurrency Icons](https://github.com/spothq/cryptocurrency-icons)
 
 ## Table of Contents
 
-- [crypto-icons](#crypto-icons)
-  - [Table of Contents](#table-of-contents)
   - [About](#about)
   - [Install](#install)
   - [Examples](#examples)
