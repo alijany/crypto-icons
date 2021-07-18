@@ -1,13 +1,14 @@
-# ![](https://github.com/alijany/crypto-icons/blob/master/src/banner.png)
+# ![banner](https://github.com/alijany/crypto-icons/blob/master/src/banner.png?raw=true)
+
 > Based on the [Cryptocurrency Icons](https://github.com/spothq/cryptocurrency-icons)
 
 ## Table of Contents
 
-  - [About](#about)
-  - [Install](#install)
-  - [Examples](#examples)
-  - [Coins Model Overview](#coins-model-overview)
-  - [Api](#api)
+- [About](#about)
+- [Install](#install)
+- [Examples](#examples)
+- [Coins Model Overview](#coins-model-overview)
+- [Api](#api)
 
 ## About
 
