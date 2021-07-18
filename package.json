@@ -1,6 +1,6 @@
 {
   "name": "@mh.alijany/crypto-icons",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A set of icons for all the main cryptocurrencies and altcoins, Whit tools such as Sharp & SvgJs to  image processing and modifying SVG icons.",
   "main": "dist/index.js",
   "scripts": {
